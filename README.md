@@ -25,3 +25,16 @@ _BYU-Pathway Worldwide improves lives through access to spiritually based, onlin
 
 ### Production Site
 https://dulcet-starburst-9e8e20.netlify.app/
+
+### Deployment Process
+Choose a Trello card, assign yourself to it, and move to "Doing".
+Pull any changes from your team's project.
+Make a branch.
+Complete the work.
+Lint and format the code.
+Commit and push.
+Make a pull request for your new branch.
+Let your team know there is a pull request waiting.
+Another team member should review the pull request in GitHub and, if everything looks good, Merge the request.
+Delete the old branch.
+Move the Trello card to the "Done" list.
