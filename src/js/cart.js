@@ -3,14 +3,18 @@ import { getLocalStorage } from "./utils.mjs";
 function renderCartContents() {
   const cartItems = getLocalStorage("so-cart");
   
-  // Check if cartItems is an array and not empty
-  if (Array.isArray(cartItems) && cartItems.length > 0) {
-    const htmlItems = cartItems.map((item) => cartItemTemplate(item));
-    document.querySelector(".product-list").innerHTML = htmlItems.join("");
-  } else {
-    // Handle empty cart or non-array data
-    document.querySelector(".product-list").innerHTML = `<li class="cart-card">Your cart is empty</li>`;
+  // If cartItems is null or undefined, show empty cart
+  if (!cartItems) {
+    document.querySelector(".product-list").innerHTML = '<li class="cart-card">Your cart is empty</li>';
+    return;
   }
+  
+  // Convert to array if it's a single object
+  const itemsArray = Array.isArray(cartItems) ? cartItems : [cartItems];
+  
+  // Generate HTML for each item
+  const htmlItems = itemsArray.map((item) => cartItemTemplate(item));
+  document.querySelector(".product-list").innerHTML = htmlItems.join("");
 }
 
 function cartItemTemplate(item) {
