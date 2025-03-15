@@ -5,7 +5,7 @@ function renderCartContents() {
   
   // If cartItems is null or undefined, show empty cart
   if (!cartItems) {
-    document.querySelector(".product-list").innerHTML = '<li class="cart-card">Your cart is empty</li>';
+    document.querySelector(".product-list").innerHTML = "<li class='cart-card'>Your cart is empty</li>";
     return;
   }
   
