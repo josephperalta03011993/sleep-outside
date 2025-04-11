@@ -3,9 +3,9 @@ import { loadHeaderFooter } from "./utils.mjs";
 import Modal from "./modal.mjs";
 
 // Display promotional modal
-const title = "🎁 Register Now & Win! 🎁";
+const title = "Get a change to win premium camping gear!";
 const message =
-  "Sign up on your first visit and get a chance to win premium camping gear tents, sleeping bags, and more! 🏕️";
+  "Sign up for our newsletter and be entered into a draw to win premium camping gear. Don't miss out on this opportunity to enhance your outdoor experience!";
 const modal = new Modal(title, message, true);
 modal.ShowModal();
 
