@@ -771,7 +771,7 @@ span.product-percentage {
 #subscribe-message {
   margin-top: 1rem;
   font-size: 1rem;
-  color: var(--secondary-color);
+  color: white;
 }
 .visually-hidden {
   position: absolute !important;

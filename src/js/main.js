@@ -23,7 +23,12 @@ document.addEventListener("DOMContentLoaded", () => {
       const emailInput = form.email;
 
       if (emailInput.checkValidity()) {
-        subscribeMessage.textContent = `Sweet! You're now subscribed to our newsletter with ${emailInput.value}!`;
+
+        // Save to localStorage
+        const email = emailInput.value;
+        localStorage.setItem("subscribedEmail", email);
+
+        subscribeMessage.textContent = `Thank you ${emailInput.value}!`;
         subscribeMessage.classList.remove("hidden");
         form.reset();
       } else {
