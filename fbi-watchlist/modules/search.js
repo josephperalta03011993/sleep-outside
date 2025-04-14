@@ -10,3 +10,21 @@ export function filterResults(items, keyword) {
            subjects.includes(lowerKeyword);
   });
 }
+
+export function sortResults(items, sortBy) {
+  if (sortBy === "default") return items;
+  const sorted = [...items]; // Avoid mutating original
+  if (sortBy === "name") {
+    return sorted.sort((a, b) => 
+      (a.title || "N/A").localeCompare(b.title || "N/A")
+    );
+  }
+  if (sortBy === "crime") {
+    return sorted.sort((a, b) => {
+      const aCrime = a.subjects?.[0] || "N/A";
+      const bCrime = b.subjects?.[0] || "N/A";
+      return aCrime.localeCompare(bCrime);
+    });
+  }
+  return sorted;
+}

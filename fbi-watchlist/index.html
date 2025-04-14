@@ -3,8 +3,11 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="An FBI Watchlist to search and track wanted criminals for public awareness and safety">
   <title>FBI Watchlist</title>
   <link rel="stylesheet" href="styles/main.css">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
 </head>
 <body>
   <header>
@@ -16,12 +19,29 @@
   <main>
     <section id="search-section">
       <form id="search-form">
-        <input type="text" id="search-input" placeholder="Enter keyword (e.g., Murder)" required>
+        <input type="text" id="search-input" placeholder="Enter keyword (e.g., Murder, Rape, Robbery)" required>
         <button type="submit">Search</button>
       </form>
+      <div id="sort-section">
+        <label for="sort-select">Sort by: </label>
+        <select id="sort-select">
+          <option value="default">Default</option>
+          <option value="name">Name (A-Z)</option>
+          <option value="crime">Crime Type</option>
+        </select>
+      </div>
     </section>
     <section id="results-section">
       <div id="results"></div>
+    </section>
+    <section id="details-modal" class="modal" style="display: none;">
+      <div class="modal-content">
+        <span id="close-modal" class="close">&times;</span>
+        <h2 id="modal-title"></h2>
+        <img id="modal-image" src="" alt="">
+        <p id="modal-description"></p>
+        <p id="modal-caution"></p>
+      </div>
     </section>
   </main>
   <script type="module" src="scripts/app.js" defer></script>
