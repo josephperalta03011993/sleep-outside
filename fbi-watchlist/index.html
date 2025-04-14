@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FBI Watchlist</title>
+  <link rel="stylesheet" href="styles/main.css">
+</head>
+<body>
+  <header>
+    <h1>FBI Watchlist</h1>
+    <nav>
+      <a href="index.html">Search</a> | <a href="tracked.html">Tracked</a>
+    </nav>
+  </header>
+  <main>
+    <section id="search-section">
+      <form id="search-form">
+        <input type="text" id="search-input" placeholder="Enter keyword (e.g., Murder)" required>
+        <button type="submit">Search</button>
+      </form>
+    </section>
+    <section id="results-section">
+      <div id="results"></div>
+    </section>
+  </main>
+  <script type="module" src="scripts/app.js" defer></script>
+</body>
+</html>
