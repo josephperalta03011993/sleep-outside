@@ -6,7 +6,7 @@
 }
 
 body {
-  font-family: Arial, sans-serif;
+  font-family: "Roboto", Arial, sans-serif;
   line-height: 1.6;
   color: #333;
 }
@@ -26,10 +26,11 @@ nav a {
   color: white;
   text-decoration: none;
   margin: 0 0.5rem;
+  transition: color 0.2s ease; /* Add transition for advanced hover */
 }
 
 nav a:hover {
-  color: #DC2626;
+  color: #e11d48;
 }
 
 main {
@@ -56,14 +57,20 @@ main {
 
 button {
   padding: 0.5rem 1rem;
-  background: #DC2626;
+  background: #6E0922;
   color: white;
   border: none;
   cursor: pointer;
+  transition: background 0.2s ease, box-shadow 0.2s ease, transform 0.1s ease; /* Add transform for press effect */
 }
 
 button:hover {
-  background: #b91c1c;
+  background: #be123c;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+}
+
+button:active {
+  transform: scale(0.95); /* Press effect */
 }
 
 /* Results grid */
@@ -73,11 +80,18 @@ button:hover {
   gap: 1rem;
 }
 
+/* Card styles */
 .result-card, .tracked-card {
   border: 1px solid #ccc;
   padding: 1rem;
   border-radius: 5px;
   text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.result-card:hover, .tracked-card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 10px rgba(225, 29, 72, 0.5); /* Hover glow */
 }
 
 .result-card img, .tracked-card img {
@@ -90,20 +104,47 @@ button:hover {
   margin-top: 0.5rem;
 }
 
-/* Clear All button */
-#clear-all {
-  margin-bottom: 1rem;
+.tracked-card button.remove-btn {
+  background: #666;
 }
 
-/* Responsive design */
-@media (max-width: 600px) {
-  #search-form {
-    flex-direction: column;
-  }
+.tracked-card button.remove-btn:hover {
+  background: #555;
+}
 
-  #search-input, button {
-    width: 100%;
-  }
+/* Tracked header */
+.tracked-header {
+  margin-bottom: 1rem;
+  display: flex;
+  justify-content: flex-end;
+}
+
+/* Sort section */
+#sort-section {
+  margin-top: 1rem;
+}
+
+#sort-select {
+  padding: 0.5rem;
+  font-size: 1rem;
+}
+
+/* Pagination */
+#pagination {
+  margin-top: 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+}
+
+#pagination button {
+  padding: 0.5rem 1rem;
+}
+
+#pagination button:disabled {
+  background: #ccc;
+  cursor: not-allowed;
 }
 
 /* Modal styles */
@@ -118,6 +159,12 @@ button:hover {
   justify-content: center;
   align-items: center;
   z-index: 1000;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.modal.active {
+  opacity: 1;
 }
 
 .modal-content {
@@ -129,52 +176,6 @@ button:hover {
   position: relative;
 }
 
-.close {
-  position: absolute;
-  top: 10px;
-  right: 15px;
-  font-size: 1.5rem;
-  cursor: pointer;
-}
-
-#modal-image {
-  max-width: 100%;
-  margin: 1rem 0;
-}
-
-@media (max-width: 600px) {
-  .modal-content {
-    padding: 1rem;
-  }
-}
-
-#sort-section {
-  margin-top: 1rem;
-}
-
-#sort-select {
-  padding: 0.5rem;
-  font-size: 1rem;
-}
-
-body {
-  font-family: "Roboto", Arial, sans-serif;
-  line-height: 1.6;
-  color: #333;
-}
-
-button {
-  padding: 0.5rem 1rem;
-  background: #e11d48; /* Softer red */
-  color: white;
-  border: none;
-  cursor: pointer;
-}
-
-button:hover {
-  background: #be123c;
-}
-
 .modal-content h2 {
   margin-bottom: 1rem;
 }
@@ -184,12 +185,40 @@ button:hover {
   line-height: 1.5;
 }
 
-#modal-caution {
-  font-style: italic;
-  color: #1E3A8A; /* Dark blue for emphasis */
+#modal-image {
+  max-width: 100%;
+  margin: 1rem 0;
 }
 
-#modal-description, #modal-caution {
+#modal-caution {
+  font-style: italic;
+  color: #1E3A8A;
+}
+
+#modal-description, #modal-caution, #modal-extra {
   max-height: 200px;
-  overflow-y: auto; /* Scroll if too long */
+  overflow-y: auto;
+}
+
+.close {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+/* Responsive design */
+@media (max-width: 600px) {
+  #search-form {
+    flex-direction: column;
+  }
+
+  #search-input, button {
+    width: 100%;
+  }
+
+  .modal-content {
+    padding: 1rem;
+  }
 }

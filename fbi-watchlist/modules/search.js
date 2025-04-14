@@ -1,3 +1,4 @@
+// Filter items based on a keyword in title, description, or subjects
 export function filterResults(items, keyword) {
   if (!keyword) return items;
   const lowerKeyword = keyword.toLowerCase();
@@ -7,10 +8,11 @@ export function filterResults(items, keyword) {
     const subjects = item.subjects?.map(s => s.toLowerCase()) || [];
     return title.includes(lowerKeyword) ||
            description.includes(lowerKeyword) ||
-           subjects.includes(lowerKeyword);
+           subjects.some(subject => subject.includes(lowerKeyword)); // Check if any subject contains the keyword
   });
 }
 
+// Sort items by name (title) or crime (first subject), with a default option
 export function sortResults(items, sortBy) {
   if (sortBy === "default") return items;
   const sorted = [...items]; // Avoid mutating original
@@ -26,5 +28,5 @@ export function sortResults(items, sortBy) {
       return aCrime.localeCompare(bCrime);
     });
   }
-  return sorted;
+  return items; // Fallback for unknown sortBy values
 }

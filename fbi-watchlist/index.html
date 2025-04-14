@@ -3,23 +3,24 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="An FBI Watchlist to search and track wanted criminals for public awareness and safety">
+  <meta name="description" content="A website for tracking FBI wanted criminals to increase public safety and awareness">
+  <meta name="author" content="Joseph D. Peralta">
   <title>FBI Watchlist</title>
-  <link rel="stylesheet" href="styles/main.css">
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+  <link rel="stylesheet" href="styles/main.css">
 </head>
 <body>
   <header>
     <h1>FBI Watchlist</h1>
     <nav>
-      <a href="index.html">Search</a> | <a href="tracked.html">Tracked</a>
+      <a href="index.html" rel="noopener">Search</a> | <a href="tracked.html" rel="noopener">Tracked</a>
     </nav>
   </header>
   <main>
     <section id="search-section">
       <form id="search-form">
-        <input type="text" id="search-input" placeholder="Enter keyword (e.g., Murder, Rape, Robbery)" required>
+        <input type="text" id="search-input" placeholder="Enter keyword (e.g., Murder)" required>
         <button type="submit">Search</button>
       </form>
       <div id="sort-section">
@@ -33,17 +34,23 @@
     </section>
     <section id="results-section">
       <div id="results"></div>
+      <div id="pagination">
+        <button id="prev-page" disabled>Previous</button>
+        <span id="page-info"></span>
+        <button id="next-page">Next</button>
+      </div>
     </section>
     <section id="details-modal" class="modal" style="display: none;">
       <div class="modal-content">
-        <span id="close-modal" class="close">&times;</span>
+        <span id="close-modal" class="close">×</span>
         <h2 id="modal-title"></h2>
         <img id="modal-image" src="" alt="">
         <p id="modal-description"></p>
         <p id="modal-caution"></p>
+        <div id="modal-extra"></div>
       </div>
     </section>
   </main>
-  <script type="module" src="scripts/app.js" defer></script>
+  <script type="module" src="scripts/app.js"></script>
 </body>
 </html>
